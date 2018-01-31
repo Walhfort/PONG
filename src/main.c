@@ -1,5 +1,5 @@
 #include "const.h"
-
+//test
 int main(){
 	int size_x = 121, size_y = 31;
 	int middle_y = size_y / 2, middle_x = size_x /2;
