@@ -64,14 +64,11 @@ void build(grid_t * grid){
 	}
 }
 
-void update_ball(grid_t * grid, ball_t ball){
+void update_ball(grid_t * grid, ball_t ball, pos_t player1, pos_t player2){
 	write_cell(grid, ball.curr.x, ball.curr.y, ball.last_char); //Efface la balle
-	ball = move_ball(grid, ball);
+	ball = move_ball(grid, ball, player1, player2);
 	ball.last_char = read_cell(grid, ball.curr.x, ball.curr.y);
 	write_cell(grid, ball.curr.x, ball.curr.y, BALL);
-
-	
-
 }
 
 int can_bounce(ball_t ball, pos_t player){
@@ -92,9 +89,10 @@ ball_t move_ball(grid_t * grid, ball_t ball, pos_t player1, pos_t player2){
 	int next_y = ball.curr.y + ball.vect.y;
 
 	if(next_x <= player1.x)
-		if(can_bounce(ball, player1))
-			update_ball(grid_t, ball);
+		if(can_bounce(ball, player1)){
+			update_ball(grid, ball, player1, player2);
 			ball.vect.x = 0 - ball.vect.x;
+		}
 		else
 			ball.vect.x = 0;
 

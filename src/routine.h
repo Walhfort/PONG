@@ -18,7 +18,7 @@ void print(grid_t *);
 void build(grid_t *);
 
 
-void update_ball(grid_t*, ball_t);
+void update_ball(grid_t*, ball_t, pos_t, pos_t);
 int can_bounce(ball_t, pos_t);
 ball_t move_ball(grid_t *, ball_t, pos_t, pos_t);
 
